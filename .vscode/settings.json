@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ตั้งค่า Formatter แยกตามประเภทไฟล์ในโปรเจกต์ Vue 3
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ปิดการจัด Code Action ซ้ำซ้อน และสั่งจัดระเบียบ Import บนไฟล์ .ts / .vue
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+
+  // ชี้ตำแหน่งไฟล์คอนฟิกไปที่โฟลเดอร์ fe
+  "prettier.configPath": "../.prettierrc",
+  "prettier.ignorePath": "../.prettierignore",
+
+  // ชี้ตำแหน่ง node_modules ที่ติดตั้ง prettier ไว้
+  "prettier.resolveGlobalModules": true
+}
