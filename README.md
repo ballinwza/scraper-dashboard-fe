@@ -1,3 +1,4 @@
+```
 src/
 ├── app/ # Next.js App Router (Presentation Layer)
 │ ├── (auth)/
@@ -102,3 +103,4 @@ src/
 └── tests/
 ├── unit/
 └── integration/
+```

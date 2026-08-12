@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner # เจาะจงใช้ Stage runner สำหรับ Production
+    image: scraper-dashbard-fe:latest
+    container_name: scraper-dashbard-fe
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    # ตัวเลือกเสริม: จำกัดการใช้งาน RAM/CPU
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
