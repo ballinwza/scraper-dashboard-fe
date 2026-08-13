@@ -4,6 +4,8 @@ steps:
   # ------------------------------------------------------------------
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Build Docker Image'
+    env:
+      - 'DOCKER_BUILDKIT=1'
     args:
       - 'build'
       - '--target=runner'

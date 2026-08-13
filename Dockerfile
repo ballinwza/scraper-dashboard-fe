@@ -5,8 +5,7 @@ WORKDIR /app
 
 COPY package.json package-lock.json* ./
 # ใช้ Cache mount ช่วยลดเวลาดาวน์โหลดแพ็กเกจเมื่อมีการ rebuild
-RUN --mount=type=cache,target=/root/.npm \
-    npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 # --- Stage 2: Builder ---
 FROM node:22-alpine AS builder
