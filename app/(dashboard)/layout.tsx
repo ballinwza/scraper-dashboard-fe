@@ -2,7 +2,8 @@
 
 import Header from '@/presentation/components/layouts/Header'
 import Sidebar from '@/presentation/components/layouts/Sidebar'
-import { useState } from 'react'
+import { useAuth } from '@/presentation/hooks/useAuth'
+import { useEffect, useState } from 'react'
 
 export default function DashboardLayout({
   children,
@@ -10,6 +11,11 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
+  const { getUser } = useAuth()
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   return (
     <div className="flex h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">

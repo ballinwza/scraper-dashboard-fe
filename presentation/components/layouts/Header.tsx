@@ -1,11 +1,23 @@
-import { Bell, Search, User } from 'lucide-react'
+'use client'
+
+import { useAuth } from '@/presentation/hooks/useAuth'
+import { useAuthStore } from '@/presentation/stores/authStore'
+import { Bell, LogOut, Search, User } from 'lucide-react'
 
 export default function Header() {
+  const { user } = useAuthStore((state) => state)
+
+  const { logout } = useAuth()
+
+  const handleLogout = () => {
+    logout()
+  }
+
   return (
     <header className="h-16 backdrop-blur-md border-b px-6 flex items-center justify-between sticky top-0 z-10 bg-white/80 border-slate-200 dark:bg-slate-900/80 dark:border-slate-800">
       <div className="flex items-center space-x-4">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-          Overview Dashboard
+          Overview
         </h2>
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 mr-1.5 animate-pulse" />
@@ -34,10 +46,21 @@ export default function Header() {
           </div>
           <div className="text-xs">
             <p className="font-medium text-slate-900 dark:text-slate-200">
-              Admin User
+              {user?.name ?? 'Admin'}
             </p>
-            <p className="text-slate-500">System Admin</p>
+            <p className="text-slate-500">
+              {user?.role.toUpperCase() ?? 'User'}
+            </p>
           </div>
+
+          {/* ปุ่ม Logout */}
+          <button
+            onClick={handleLogout}
+            title="ออกจากระบบ"
+            className="p-2 ml-2 rounded-lg text-slate-500 hover:text-red-600 hover:bg-red-50 dark:text-slate-400 dark:hover:text-red-400 dark:hover:bg-slate-800/80 transition-colors"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </header>

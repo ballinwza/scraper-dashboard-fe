@@ -9,26 +9,15 @@ import {
   RentalEstateQueryFilters,
 } from '@/domain/entities/rental_estate'
 import { IRentalEstateRepository } from '@/domain/repositories/rental_estate.repository'
-import { createCachedUseCase } from '@/shared/utils/cacheHelper'
 import { axiosClient } from '../api/axios_client'
 import { RentalEstateMapper } from '../mappers/rental_estate.mapper'
 
 export class RentalEstateRepositoryImpl implements IRentalEstateRepository {
   async getRentalEstateById(id: string): Promise<RentalEstate> {
-    const getCachedRentalEstate = createCachedUseCase(
-      async (estateId: string) => {
-        const response = await axiosClient.get<RentalEstateResponseDTO>(
-          `/rental/estate/${estateId}`
-        )
-        return RentalEstateMapper.toDomain(response.data)
-      },
-      [`rental-estate-by-id-${id}`],
-      {
-        tags: ['rental-estate-all', `rental-estate-${id}`],
-      }
+    const response = await axiosClient.get<RentalEstateResponseDTO>(
+      `/rental/estate/${id}`
     )
-
-    return await getCachedRentalEstate(id)
+    return RentalEstateMapper.toDomain(response.data)
   }
 
   async getEstates(
@@ -44,21 +33,11 @@ export class RentalEstateRepositoryImpl implements IRentalEstateRepository {
       order: filters?.order,
     }
 
-    const getCachedRentalEstates = createCachedUseCase(
-      async () => {
-        const response =
-          await axiosClient.get<RentalEstatePaginatedResponseDTO>(
-            `/rental/estates`,
-            { params }
-          )
-
-        return RentalEstateMapper.toPaginatedDomain(response.data)
-      },
-      [`rental-estate-list`],
-      {
-        tags: ['rental-estate-list'],
-      }
+    const response = await axiosClient.get<RentalEstatePaginatedResponseDTO>(
+      `/rental/estates`,
+      { params }
     )
-    return await getCachedRentalEstates()
+
+    return RentalEstateMapper.toPaginatedDomain(response.data)
   }
 }

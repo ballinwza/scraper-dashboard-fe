@@ -2,6 +2,7 @@ import QueryProvider from '@/presentation/components/providers/QueryProvider'
 import { ThemeProvider } from '@/presentation/components/providers/ThemeProvider'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             disableTransitionOnChange
           >
             {children}
+            <Toaster position="top-right" richColors />
           </ThemeProvider>
         </QueryProvider>
       </body>
