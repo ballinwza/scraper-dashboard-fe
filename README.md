@@ -2,6 +2,11 @@
 
 [Backend](https://scraper-dashboard-be-prod-758337397665.asia-southeast1.run.app)
 [Backend Docs](https://scraper-dashboard-be-prod-758337397665.asia-southeast1.run.app/docs/index.html)
+[Frontend Service](https://scraper-dashboard-fe-prod-758337397665.asia-southeast1.run.app/)
+
+(AI Estate Rag)[https://github.com/ballinwza/ai-estate-rag]
+
+- HTTP/2 gRPC `ai-estate-rag-758337397665.asia-southeast1.run.app`
 
 ```
 src/

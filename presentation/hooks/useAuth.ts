@@ -19,13 +19,8 @@ export function useAuth() {
       const { accessToken, refreshToken } =
         await container.loginUseCase.execute(credentials)
       CookieService.setTokens(accessToken, refreshToken)
-
-      await new Promise((resolve) => setTimeout(resolve, 50))
-      const userUsercase = await container.getUserUsecase.execute()
-      return { user: userUsercase }
     },
-    onSuccess: ({ user }) => {
-      setUser(user)
+    onSuccess: () => {
       queryClient.clear()
       router.push('/dashboard')
     },
