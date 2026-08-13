@@ -31,4 +31,9 @@ export class CookieService {
     Cookies.remove(this.ACCESS_TOKEN_KEY, { path: '/' })
     Cookies.remove(this.REFRESH_TOKEN_KEY, { path: '/' })
   }
+
+  static hasAccessToken(): boolean {
+    const token = Cookies.get(this.ACCESS_TOKEN_KEY)
+    return !!token
+  }
 }

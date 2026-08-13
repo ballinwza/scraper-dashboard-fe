@@ -1,15 +1,13 @@
 'use client'
 import ThemeToggle from '@/presentation/components/common/ThemeToggle'
 import {
+  Bot,
   ChevronLeft,
   ChevronRight,
   DatabaseZap,
   Globe,
-  History,
   HouseHeart,
   LayoutDashboard,
-  Settings,
-  Terminal,
 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -17,10 +15,11 @@ import { usePathname } from 'next/navigation'
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Rental Estate', href: '/rental-estate', icon: HouseHeart },
-  { name: 'Scraper Targets', href: '/targets', icon: Globe },
-  { name: 'Jobs History', href: '/jobs', icon: History },
-  { name: 'Real-time Logs', href: '/logs', icon: Terminal },
-  { name: 'Settings', href: '/settings', icon: Settings },
+  { name: 'AI Assistant', href: '/chatbot', icon: Bot },
+  { name: 'Scraper', href: '/scraper', icon: Globe },
+  // { name: 'Jobs History', href: '/jobs', icon: History },
+  // { name: 'Real-time Logs', href: '/logs', icon: Terminal },
+  // { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
 interface SidebarProps {
