@@ -7,16 +7,14 @@ export class CookieService {
   static setTokens(accessToken: string, refreshToken: string) {
     Cookies.set(this.ACCESS_TOKEN_KEY, accessToken, {
       expires: 15 / 1440, // Min=1440 , Hr=24
-      secure: process.env.NEXT_PUBLIC_NODE_ENV === 'production',
-      sameSite:
-        process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? 'strict' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
       path: '/',
     })
     Cookies.set(this.REFRESH_TOKEN_KEY, refreshToken, {
       expires: 7,
-      secure: process.env.NEXT_PUBLIC_NODE_ENV === 'production',
-      sameSite:
-        process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? 'strict' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
       path: '/',
     })
   }

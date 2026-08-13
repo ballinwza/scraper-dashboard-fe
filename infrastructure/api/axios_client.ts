@@ -3,7 +3,7 @@ import { CookieService } from '@/presentation/stores/cookieService'
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const axiosClient = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_SERVICE_URI}/api/v1`,
+  baseURL: `/api/v1`,
   headers: {
     'Content-Type': 'application/json',
   },

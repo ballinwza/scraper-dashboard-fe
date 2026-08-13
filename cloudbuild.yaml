@@ -14,7 +14,7 @@ steps:
       - '-t'
       - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/${_SERVICE}:${_ENVIRONMENT}-latest'
       - '--build-arg'
-      - 'NEXT_PUBLIC_NODE_ENV=${_ENVIRONMENT}' # ส่งค่า Environment เข้าไปใน Dockerfile หากต้องใช้ตอน Build
+      - 'NODE_ENV=${_ENVIRONMENT}' # ส่งค่า Environment เข้าไปใน Dockerfile หากต้องใช้ตอน Build
       - '.'
 
   # ------------------------------------------------------------------

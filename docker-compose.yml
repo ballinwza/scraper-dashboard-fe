@@ -10,7 +10,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - NEXT_PUBLIC_NODE_ENV=production
+      - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
     # ตัวเลือกเสริม: จำกัดการใช้งาน RAM/CPU

@@ -22,7 +22,7 @@ RUN npm run build
 FROM node:22-alpine AS runner
 WORKDIR /app
 
-ENV NEXT_PUBLIC_NODE_ENV=production
+ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs && \

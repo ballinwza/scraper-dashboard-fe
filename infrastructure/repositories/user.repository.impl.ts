@@ -21,7 +21,7 @@ export class UserRepositoryImpl implements IUserRepository {
 
   async tokenRotation(): Promise<JwtResponseDTO> {
     const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_SERVICE_URI}/auth/refresh`,
+      `/api/v1/auth/refresh`,
       {},
       { withCredentials: true }
     )
