@@ -8,9 +8,9 @@ services:
     container_name: scraper-dashbard-fe
     restart: always
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
-      - NODE_ENV=production
+      - NEXT_PUBLIC_NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
     # ตัวเลือกเสริม: จำกัดการใช้งาน RAM/CPU
