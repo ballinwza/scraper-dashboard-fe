@@ -2,6 +2,7 @@
 
 import Header from '@/presentation/components/layouts/Header'
 import Sidebar from '@/presentation/components/layouts/Sidebar'
+import AutoRefresh from '@/presentation/components/providers/AutoRefresh'
 import { useAuth } from '@/presentation/hooks/useAuth'
 import { useEffect, useState } from 'react'
 
@@ -24,6 +25,7 @@ export default function DashboardLayout({
         <Header />
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
       </div>
+      <AutoRefresh intervalMinutes={10} />
     </div>
   )
 }
